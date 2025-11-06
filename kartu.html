@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kartu Fakta Menarik — Teknologi</title>
+  <style>
+  body{
+  background-image: url(ocean-fish.gif);
+  }
+  img {
+  width: 300px;
+  height: 200px;
+}
+.facts-list {
+    text-align: center;
+}
+.card-fakta {
+    text-align: center;
+}
+.card-fakta {
+  width: 650px;
+  height: 1500px;
+  background-color: skyblue;
+  margin: auto;
+  border-radius: 30px;
+  opacity: 0.9;
+}
+@font-face {
+    font-family: "fluff";
+   src: url("Fluff.ttf");
+  }
+  h2{
+    font-family: "fluff";
+    color: black;
+    font-size: 40px;
+  }
+  li{
+    font-family: "fluff";
+    color: black;
+  }
+  p{
+    font-family: "fluff";
+    color: black;
+  }
+  .card-footer{
+    font-family: "fluff";
+    color: black;
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class="card-fakta">
+    <img id="factImage" src="tiger shark🦈 ₊ ⊹ ☆ ⊹ ₊.jpg" alt="Ilustrasi teknologi modern" />
+    <div class="content">
+      <h2>Fakta Menarik tentang HIUUU</h2>
+      <p class="subtitle">Tahukah kamu fakta-fakta unik ini?</p>
+
+      <ul class="facts-list" id="factList">
+        <li>Hiu tidak memiliki tulang</li>
+        <li>Kulit hiu seperti sandpaper</li>
+        <li>Hiu kurang lebih sudah hidup selama 445 juta tahun lalu!</li>
+        <li>Setiap pola unik di hiu sama uniknya dengan sidik jari manusia</li>
+      </ul>
+
+      <button class="btn-next" id="nextFact">Fakta Selanjutnya</button>
+
+      <div class="card-footer">© 2025 | Fakta Hiu • Informatika SMA</div>
+    </div>
+  </div>
+
+  <script>
+    const factData = [
+      {
+        image: "shark.jpg",
+        facts: [
+          "Ada lebih dari 500 spesies hiu, 30 darinya berbahaya bagi manusia.",
+          "Hiu memiliki indra penciuman yang luar biasa; mereka bisa mendeteksi darah di air dari jarak hingga 1 km.",
+          "Hiu putih besar bisa berenang hingga 25 mph"
+          
+        ]
+      },
+      {
+        image: "siren aesthetic.jpg",
+        facts: [
+          "Hiu paus adalah ikan terbesar di dunia, bisa mencapai panjang hingga 12 meter dan berat hingga 20 ton. ",
+          "Hiu adalah predator puncak yang membantu menjaga keseimbangan ekosistem laut dengan mengontrol populasi ikan lainnya.",
+          "Hiu tidak bisa berenang mundur; mereka harus berputar untuk berubah arah."
+        ]
+      },
+      {
+        image: "download.jpg",
+        facts: [
+          "Hiu memiliki kemampuan regenerasi yang kuat.",
+          "Hiu sangat sensitif terhadap perubahan suhu air laut, pemanasan global dapat mengganggu habitat mereka.",
+          "Hiu lebih takut pada manusia."
+        ]
+      },
+      {
+        image: "hiuu.jpg",
+        facts: [
+          "Ilmuwan terus menemukan spesies baru",
+          "Lebih banyak orang mati karena tersambar petir (sekitar 30 per tahun di AS) daripada serangan hiu fatal (kurang dari 10 per tahun global).",
+          "Hiu martil memiliki kepala berbentuk palu yang memungkinkan mata mereka melihat 360 derajat tanpa memutar tubuh."
+        ]
+      }
+    ];
+
+    const factList = document.getElementById("factList");
+    const factImage = document.getElementById("factImage");
+    const nextBtn = document.getElementById("nextFact");
+
+    nextBtn.addEventListener("click", () => {
+      factList.classList.add("fade-out");
+      setTimeout(() => {
+        const randomFact = factData[Math.floor(Math.random() * factData.length)];
+        factImage.style.opacity = 0;
+
+        setTimeout(() => {
+          factImage.src = randomFact.image;
+          factImage.style.opacity = 1;
+        }, 400);
+
+        factList.innerHTML = randomFact.facts.map(f => `<li>${f}</li>`).join("");
+        factList.classList.remove("fade-out");
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
